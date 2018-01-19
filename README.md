@@ -16,7 +16,7 @@ The big goals of the project are
 * [X] Redownload Essen Collection with All Countries
 * [X] Rerun Feature Extraction Script
 * [ ] Get American Folk Songs from Kodaly
-* [ ] Get Meertens Dutsch Folk Song (Peter Von Kronnerberg?) 
+* [ ] Get Meertens Dutsch Folk Song (Peter Von Kranenberg?) 
 * [ ] Convert RS200 Melody to Krn
 
 ### Literature Review
