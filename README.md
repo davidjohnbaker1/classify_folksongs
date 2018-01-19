@@ -35,6 +35,7 @@ The big goals of the project are
 * [ ] Get American Features http://kodaly.hnu.edu/collection.cfm 522
 * [X] Chinese Features?
 * [X] Write R Script to Add in More Humdrum Metadata (Like German Region) 
+* [X] Get Complete Densmore 
 
 #### Analysis 
 
