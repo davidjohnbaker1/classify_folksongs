@@ -1,7 +1,7 @@
 # Classifying Folksongs Project
 
 ## Overview
-
+woop woop
 This project is an investigation whether or not extracted featuers of melodies can be used to train some sort of ML classifier.
 The idea is to explore a bit with it and then write it up into a small paper for the Journal of New Music Research.
 The big goals of the project are
