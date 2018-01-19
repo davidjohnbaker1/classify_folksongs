@@ -1,0 +1,9 @@
+1. Be collaborator 
+2. Clone the repo you are collborating on 
+3. create a new branch (through interface, or via command line) 
+4. git checkout the new branch that you just created
+5. do some work 
+6. git add ., git commit -m what you did 
+7. go BACK to master with ```git checkout master```
+8. git merge new_branch
+9. done
