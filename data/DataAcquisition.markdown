@@ -22,16 +22,14 @@ Then run fantastic
 
 ## Densmore Collection 
 
-Densmore collection was downloaded in three parts.
-First went to http://kern.humdrum.org/cgi-bin/browse?l=/osu/densmore for Ojibway and Pawnee.
-Then got Sioux from http://kern.humdrum.org/cgi-bin/browse?l=users/craig/songs/densmore/sioux
+Got densmore_complete from DS.
 
 ```find . -name \*.krn | wc```
-Then I moved them to essenbin with
+Then I moved them to densmorebin with
  ```find . -name \*.krn -exec cp {} ../densmore\_bin/ \;```
 Then run bash loop to convert to xml (hum2xml)
  ```for i in *.krn; do; hum2xml > $i.xml; done```
- ```rename 's/\.krn\.xml$/.krn/' *.xml```
+ ```rename 's/\.krn\.xml$/.xml/' *.xml```
 Then use Musescore to convert in batch. Minmal problems in comparison
 Now nun melconv
 ```ls \*.mid | melconv -f csv -s -I```

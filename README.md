@@ -36,6 +36,7 @@ The big goals of the project are
 * [X] Chinese Features?
 * [X] Write R Script to Add in More Humdrum Metadata (Like German Region) 
 * [X] Get Complete Densmore 
+* [X] Convert Densmore Collection
 
 #### Analysis 
 
@@ -64,3 +65,5 @@ The big goals of the project are
 	* Get full Essen from DS
 	* Talk ML techniques w DS meeting, NN, KNN, Decision Tree
 	* Recursive 
+6. Convert Densmore Complete
+	* Still need to move files around
