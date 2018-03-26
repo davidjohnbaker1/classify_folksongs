@@ -36,6 +36,46 @@ get.FANTASTIC.numeric <- function(x){
 get.FANTASTIC.numeric(densmore)
 get.FANTASTIC.numeric(essen)
 
+#======================================================================================================
+# Find Melodies for ICMPC Paper, 2x2 
+names(essen)
+ggplot(essen[glob.duration < 50], aes(glob.duration)) + geom_density()
+# Set Seconds
+timeSubset <- essen[glob.duration > 7 & glob.duration < 9]
+ggplot(timeSubset, aes(glob.duration)) + geom_density()
+timeSubset
+ggplot(timeSubset, aes(x = scale(note.dens), y = scale(tonalness))) + geom_point() + geom_text(aes(label=folksong, hjust = .5, vjust = -.75))
+
+findMelodies <- timeSubset[, .(znote = scale(note.dens), ztonal = scale(tonalness), folksong)]
+# High Density, High Tonal
+
+ggplot(findMelodies[znote > 1 & ztonal > 1], 
+       aes(x = znote, y = ztonal))+ geom_point() + geom_text(aes(label=folksong, hjust = .5, vjust = -.75))
+
+# Deut 3386
+
+# High Desnsity, Low Tonal
+
+ggplot(findMelodies[znote > 1 & ztonal < -1], 
+       aes(x = znote, y = ztonal))+ geom_point() + geom_text(aes(label=folksong, hjust = .5, vjust = -.75))
+findMelodies[znote > 1 & ztonal < -1]
+
+
+# Low Density, Low Tonal
+
+ggplot(findMelodies[znote < -1 & ztonal < -1], 
+       aes(x = znote, y = ztonal))+ geom_point() + geom_text(aes(label=folksong, hjust = .5, vjust = -.75))
+
+# deut3400 
+
+# Low Density, High Tonal 
+
+ggplot(findMelodies[znote < -1 & ztonal > 1], 
+       aes(x = znote, y = ztonal))+ geom_point() + geom_text(aes(label=folksong, hjust = .5, vjust = -.75))
+
+# Deuth3281
+
+
 #--------------------------------------------------
 # Begin the Search for collinearity 
 
