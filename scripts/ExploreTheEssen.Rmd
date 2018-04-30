@@ -1,0 +1,104 @@
+---
+title: "Exploring The Essen and Densmore"
+author: "David John Baker"
+date: "April 30, 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Import Data
+
+First thing needed is to import all of the data.
+
+```{r}
+library(data.table)
+library(ggplot2)
+densmore <- fread("../data/feature_data/densmoreFeatures.csv") # Native American Songs
+essen <- fread("../data/feature_data/essenFeatures.csv") # Essen Collection
+```
+
+## Explore Data 
+
+Check out all the variables listed.
+
+```{r}
+names(essen)
+```
+
+Special subset of this data has region of Germany associated with it. 
+
+```{r}
+unique(essen$Region)
+unique(densmore$Country)
+# Link to what key of each one is can be found here http://kern.humdrum.org/cgi-bin/browse?l=essen/europa/deutschl
+```
+
+### Explore Large Level Features of Corpus 
+
+Swap in other variables below!
+
+```{r}
+ggplot(essen, aes(glob.duration)) + geom_density() + labs(title = "Density Plot of Length")
+
+ggplot(essen, aes(mean.entropy)) + geom_density() + labs(title = "Density Plot of Mean Entropy")
+```
+
+
+### Relationship Between Variables
+
+You can use ```ggplot2``` to explore the relationship between different variables.
+Try to swap out the x and y variables with others on a continuous scale.
+You can also group by categorical variables.
+
+```{r}
+ggplot(essen, 
+       aes(x = len, y = p.entropy))+ geom_point() + labs(main = "Length of Melody vs Pitch Entropy")
+
+
+ggplot(essen, 
+       aes(x = len, y = tonalness))+ geom_point() + labs(main = "Length of Melody vs Tonalness")
+
+ggplot(essen, 
+       aes(x = len, y = tonalness, color = mode))+ geom_point() + labs(main = "Length of Melody vs Tonalness, By Mode")
+
+
+ggplot(essen, 
+       aes(x = len, y = tonalness, color = Country))+ geom_point() + labs(main = "Length of Melody vs Tonalness, By Type")
+
+```
+
+
+### Subsetting
+
+You can "zoom" in on some variables using R's indexing functions.
+
+```{r}
+# Index within the plot 
+ggplot(essen[glob.duration > 7 & glob.duration < 9], 
+       aes(x = len, y = tonalness, color = mode))+ geom_point() + labs(main = "Length of Melody vs Tonalness, By Mode")
+
+# Try different group by 
+ggplot(essen[glob.duration > 7 & glob.duration < 9], 
+       aes(x = len, y = tonalness, color = Country))+ geom_point() + labs(main = "Length of Melody vs Tonalness, By Country")
+
+# Convert to Z Scale
+ggplot(essen[glob.duration > 7 & glob.duration < 9], 
+       aes(x = scale(len), y = scale(tonalness), color = Country))+ geom_point() + labs(main = "Length of Melody vs Tonalness, By Country")
+
+# Convert to Z Scale
+ggplot(densmore, 
+       aes(x = note.dens, y = tonalness, color = Country))+ geom_point() + labs(main = "Densmore Density vs Tonalness, By Tribe")
+
+# Look at Group Differences
+ggplot(densmore,
+       aes(y = tonalness, x = Country)) + geom_boxplot() + labs(title = "Differences in Tonalness between Native American Tribes")
+
+ggplot(essen,
+       aes(y = tonalness, x = mode)) + geom_boxplot() + labs("Differences in Tonalness in Essen Collection Split by Mode")
+
+```
+
+
+
+

@@ -1,5 +1,5 @@
 {
-    "path" : "~/Desktop/projects/classify_folksongs/scripts",
+    "path" : "~/Desktop/projects/classify_folksongs/data/feature_data",
     "sortOrder" : [
         {
             "ascending" : true,
